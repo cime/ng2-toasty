@@ -1,9 +1,6 @@
-import { inject, TestBed }
-    from '@angular/core/testing';
-
-import {Observable} from 'rxjs/Observable';
-
-import {ToastyService, ToastData, ToastOptions, ToastyConfig, ToastyEvent} from '../src/toasty.service';
+import { inject, TestBed } from '@angular/core/testing';
+import { Observable } from 'rxjs';
+import { ToastData, ToastOptions, ToastyConfig, ToastyEvent, ToastyService } from '../src/toasty.service';
 
 describe('ToastyService', () => {
 

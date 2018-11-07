@@ -136,7 +136,7 @@ Here is an example of how to dynamically update message and title of individual 
 ```js
 import {Component} from '@angular/core';
 import {ToastyService, ToastyConfig, ToastyComponent, ToastOptions, ToastData} from '@cime/ngx-toasty';
-import {Subject, Observable, Subscription} from 'rxjs/Rx';
+import {Subject, Observable, Subscription} from 'rxjs';
 
 @Component({
     selector: 'app',
@@ -207,7 +207,7 @@ Here is an example of how to close an individual toast:
 ```js
 import {Component} from '@angular/core';
 import {ToastyService, ToastyConfig, ToastyComponent, ToastOptions, ToastData} from '@cime/ngx-toasty';
-import {Subject, Observable, Subscription} from 'rxjs/Rx';
+import {Subject, Observable, Subscription} from 'rxjs';
 
 @Component({
     selector: 'app',
