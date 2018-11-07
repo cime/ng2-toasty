@@ -1,6 +1,6 @@
 // Copyright (C) 2016-2017 Sergey Akopkokhyants
 // This project is licensed under the terms of the MIT license.
-// https://github.com/akserg/ng2-toasty
+// https://github.com/cime/ngx-toasty
 
 import { NgModule, ModuleWithProviders } from "@angular/core";
 import { CommonModule } from '@angular/common';
@@ -23,7 +23,7 @@ export let providers = [
 @NgModule({
     imports: [CommonModule],
     declarations: [ToastComponent, ToastyComponent, SafeHtmlPipe],
-    exports: [ ToastComponent, ToastyComponent],
+    exports: [ToastComponent, ToastyComponent],
     providers: providers
 })
 export class ToastyModule {

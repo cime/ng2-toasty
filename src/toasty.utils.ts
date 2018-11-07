@@ -1,7 +1,7 @@
 
 // Copyright (C) 2016-2017 Sergey Akopkokhyants
 // This project is licensed under the terms of the MIT license.
-// https://github.com/akserg/ng2-toasty
+// https://github.com/cime/ngx-toasty
 
 /**
  * Check and return true if an object is type of string

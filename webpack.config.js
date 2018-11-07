@@ -11,6 +11,7 @@ const helpers = require('./config/helpers'),
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     devtool: 'inline-source-map',
@@ -26,7 +27,7 @@ module.exports = {
         publicPath: '/',
         filename: 'index.umd.js',
         libraryTarget: 'umd',
-        library: 'ng2-toasty'
+        library: 'ngx-toasty'
     },
 
     // require those dependencies but don't bundle them
@@ -46,6 +47,11 @@ module.exports = {
     },
 
     plugins: [
+        new CopyWebpackPlugin([
+            { from: './img/**', to: './img/' },
+            { from: './*.css', to: '.' }
+        ]),
+
         // fix the warning in ./~/@angular/core/src/linker/system_js_ng_module_factory_loader.js
         new webpack.ContextReplacementPlugin(
             /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,

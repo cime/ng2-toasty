@@ -1,6 +1,6 @@
 // Copyright (C) 2016-2017 Sergey Akopkokhyants
 // This project is licensed under the terms of the MIT license.
-// https://github.com/akserg/ng2-toasty
+// https://github.com/cime/ngx-toasty
 
 import { Component, Input, OnInit } from '@angular/core';
 import { ToastData, ToastyConfig, ToastyEvent, ToastyEventType, ToastyService } from './toasty.service';
@@ -11,7 +11,7 @@ import { isFunction } from './toasty.utils';
  * Toasty is container for Toast components
  */
 @Component({
-  selector: 'ng2-toasty',
+  selector: 'ngx-toasty',
   template: `
     <div id="toasty" [ngClass]="[position]">
         <ng2-toast *ngFor="let toast of toasts" [toast]="toast" (closeToast)="closeToast(toast)"></ng2-toast>

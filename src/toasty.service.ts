@@ -1,6 +1,6 @@
 // Copyright (C) 2016-2017 Sergey Akopkokhyants
 // This project is licensed under the terms of the MIT license.
-// https://github.com/akserg/ng2-toasty
+// https://github.com/cime/ngx-toasty
 
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
@@ -165,7 +165,7 @@ export class ToastyService {
     }
 
     if (!toastyOptions || !toastyOptions.title && !toastyOptions.msg) {
-      throw new Error('ng2-toasty: No toast title or message specified!');
+      throw new Error('ngx-toasty: No toast title or message specified!');
     }
 
     type = type || 'default';

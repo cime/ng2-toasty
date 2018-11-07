@@ -1,9 +1,9 @@
 # Angular 2 Toasty [![npm version](https://badge.fury.io/js/ng2-toasty.svg)](https://badge.fury.io/js/ng2-toasty) [![npm monthly downloads](https://img.shields.io/npm/dm/ng2-toasty.svg?style=flat-square)](https://www.npmjs.com/package/ng2-toasty)
-Angular2 Toasty component shows growl-style alerts and messages for your application.
+Angular Toasty component shows growl-style alerts and messages for your application.
 
-[![Build Status](https://travis-ci.org/akserg/ng2-toasty.svg?branch=master)](https://travis-ci.org/akserg/ng2-toasty) 
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release) 
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) 
+[![Build Status](https://travis-ci.org/akserg/ng2-toasty.svg?branch=master)](https://travis-ci.org/akserg/ng2-toasty)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Dependency Status](https://david-dm.org/akserg/ng2-toasty.svg)](https://david-dm.org/akserg/ng2-toasty)
 [![devDependency Status](https://david-dm.org/akserg/ng2-toasty/dev-status.svg)](https://david-dm.org/akserg/ng2-toasty#info=devDependencies)
 [![Known Vulnerabilities](https://snyk.io/test/github/akserg/ng2-toasty/badge.svg)](https://snyk.io/test/github/akserg/ng2-toasty)
@@ -14,7 +14,7 @@ _Some of these APIs and Components are not final and are subject to change!_
 
 ## Installation
 ```sh
-npm install ng2-toasty --save
+npm install @cime/ngx-toasty --save
 ```
 
 ## Demo
@@ -32,7 +32,7 @@ If you use SystemJS to load your files, you might have to update your config:
 ```js
 System.config({
     map: {
-        'ng2-toasty': 'node_modules/ng2-toasty/bundles/index.umd.js'
+        '@cime/ngx-toasty': 'node_modules/@cime/ngx-toasty/bundles/index.umd.js'
     }
 });
 ```
@@ -43,16 +43,16 @@ System.config({
   - `style-bootstrap.css` - Contains Bootstrap 3 theme
   - `style-material.css` - Contains Material Design theme
 - Assign the selected theme name [`default`, `bootstrap`, `material`] to the `theme` property of the instance of ToastyConfig.
-- Add `<ng2-toasty></ng2-toasty>` tag in template of your application component.
+- Add `<ngx-toasty></ngx-toasty>` tag in template of your application component.
 
 #### 2. Import the `ToastyModule`
-Import `ToastyModule.forRoot()` in the NgModule of your application. 
+Import `ToastyModule.forRoot()` in the NgModule of your application.
 The `forRoot` method is a convention for modules that provide a singleton service.
 
 ```ts
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from '@angular/core';
-import {ToastyModule} from 'ng2-toasty';
+import {ToastyModule} from '@cime/ngx-toasty';
 
 @NgModule({
     imports: [
@@ -65,7 +65,7 @@ export class AppModule {
 }
 ```
 
-If you have multiple NgModules and you use one as a shared NgModule (that you import in all of your other NgModules), 
+If you have multiple NgModules and you use one as a shared NgModule (that you import in all of your other NgModules),
 don't forget that you can use it to export the `ToastyModule` that you imported in order to avoid having to import it multiple times.
 
 ```ts
@@ -81,28 +81,28 @@ export class SharedModule {
 ```
 
 #### 3. Use the `ToastyService` for your application
-- Import `ToastyService` from `ng2-toasty` in your application code:
+- Import `ToastyService` from `@cime/ngx-toasty` in your application code:
 
 ```js
 import {Component} from '@angular/core';
-import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
+import {ToastyService, ToastyConfig, ToastOptions, ToastData} from '@cime/ngx-toasty';
 
 @Component({
     selector: 'app',
     template: `
         <div>Hello world</div>
         <button (click)="addToast()">Add Toast</button>
-        <ng2-toasty></ng2-toasty>
+        <ngx-toasty></ngx-toasty>
     `
 })
 export class AppComponent {
-    
-    constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig) { 
-        // Assign the selected theme name to the `theme` property of the instance of ToastyConfig. 
+
+    constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig) {
+        // Assign the selected theme name to the `theme` property of the instance of ToastyConfig.
         // Possible values: default, bootstrap, material
         this.toastyConfig.theme = 'material';
     }
-    
+
     addToast() {
         // Just add default Toast with title only
         this.toastyService.default('Hi there');
@@ -135,7 +135,7 @@ Here is an example of how to dynamically update message and title of individual 
 
 ```js
 import {Component} from '@angular/core';
-import {ToastyService, ToastyConfig, ToastyComponent, ToastOptions, ToastData} from 'ng2-toasty';
+import {ToastyService, ToastyConfig, ToastyComponent, ToastOptions, ToastData} from '@cime/ngx-toasty';
 import {Subject, Observable, Subscription} from 'rxjs/Rx';
 
 @Component({
@@ -143,11 +143,11 @@ import {Subject, Observable, Subscription} from 'rxjs/Rx';
     template: `
         <div>Hello world</div>
         <button (click)="addToast()">Add Toast</button>
-        <ng2-toasty></ng2-toasty>
+        <ngx-toasty></ngx-toasty>
     `
 })
 export class AppComponent {
-    
+
     getTitle(num: number): string {
         return 'Countdown: ' + num;
     }
@@ -155,15 +155,15 @@ export class AppComponent {
     getMessage(num: number): string {
         return 'Seconds left: ' + num;
     }
-    
+
     constructor(private toastyService:ToastyService) { }
-    
+
     addToast() {
         let interval = 1000;
         let timeout = 5000;
         let seconds = timeout / 1000;
         let subscription: Subscription;
-        
+
         let toastOptions: ToastOptions = {
             title: this.getTitle(seconds),
             msg: this.getMessage(seconds),
@@ -206,7 +206,7 @@ Here is an example of how to close an individual toast:
 
 ```js
 import {Component} from '@angular/core';
-import {ToastyService, ToastyConfig, ToastyComponent, ToastOptions, ToastData} from 'ng2-toasty';
+import {ToastyService, ToastyConfig, ToastyComponent, ToastOptions, ToastData} from '@cime/ngx-toasty';
 import {Subject, Observable, Subscription} from 'rxjs/Rx';
 
 @Component({
@@ -214,11 +214,11 @@ import {Subject, Observable, Subscription} from 'rxjs/Rx';
     template: `
         <div>Hello world</div>
         <button (click)="addToast()">Add Toast</button>
-        <ng2-toasty></ng2-toasty>
+        <ngx-toasty></ngx-toasty>
     `
 })
 export class AppComponent {
-    
+
     getTitle(num: number): string {
         return 'Countdown: ' + num;
     }
@@ -226,13 +226,13 @@ export class AppComponent {
     getMessage(num: number): string {
         return 'Seconds left: ' + num;
     }
-    
+
     constructor(private toastyService:ToastyService) { }
-    
+
     addToast() {
         let interval = 1000;
         let subscription: Subscription;
-        
+
         let toastOptions: ToastOptions = {
             title: this.getTitle(0),
             msg: this.getMessage(0),
@@ -274,17 +274,17 @@ export class AppComponent {
 }
 ```
 
-#### 6. Customize the `ng2-toasty` for your application in template
-You can use the following properties to customize the ng2-toasty component in your template:
+#### 6. Customize the `@cime/ngx-toasty` for your application in template
+You can use the following properties to customize the @cime/ngx-toasty component in your template:
 
 - `position` - The window position where the toast pops up. Default value is `bottom-right`. Possible values: `bottom-right`, `bottom-left`, `top-right`, `top-left`, `top-center`, `bottom-center`, `center-center`
 Example:
 
 ```html
-<ng2-toasty [position]="'top-center'"></ng2-toasty>
+<ngx-toasty [position]="'top-center'"></ngx-toasty>
 ```
 
-# Credits 
+# Credits
 Inspired by [angular-toasty](https://github.com/teamfa/angular-toasty)
 
 # License
