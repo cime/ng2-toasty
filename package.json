@@ -8,7 +8,7 @@
     "commit": "npm run prepublish && npm test && git-cz",
     "prepublish": "npm run build",
     "build": "ngc --noUnusedParameters --noUnusedLocals && webpack && npm run minify",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "semantic-release": "semantic-release --prepare && npm publish && semantic-release --success",
     "minify": "uglifyjs bundles/index.umd.js --screw-ie8 --compress --mangle --comments --output bundles/index.umd.min.js"
   },
   "repository": {
